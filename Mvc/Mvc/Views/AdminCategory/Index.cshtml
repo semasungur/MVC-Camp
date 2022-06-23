@@ -1,0 +1,33 @@
+﻿@using EntityLayer.concrete <!--entitylayer içindeki concrete ile işimiz var-->
+<!-- categoriden gelen değerleri model değişkeninde tut-->
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>AD</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+        <th>BAŞLIKLAR</th>
+    </tr>
+    <!--model değişkeninin içinde dolan verileri iteme at-->
+    @foreach (var item in Model)
+    {
+        <tr>
+            <!--itemdaki değerleri bas-->
+            <td>@item.CategoryId</td>
+            <td>@item.CategoryName</td>
+            <td><a href="/AdminCategory/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/AdminCategory/EditCategory/@item.CategoryId" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="#" class="btn btn-primary">Başlıklar</a></td>
+        </tr>
+    }
+</table>
+
+<br />
+<a href="/AdminCategory/AddCategory" class="btn btn-info">Yeni Kategori Ekleme</a><!--burada butona basınca AdminCategory içindeki AddCategory sayfasına yönlendirme yapacak-->

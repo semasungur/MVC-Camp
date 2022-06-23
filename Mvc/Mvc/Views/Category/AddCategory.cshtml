@@ -1,0 +1,33 @@
+﻿<!--burada model içinde üzerinde çalışacağımız sınıfı çağırıyoruz-->
+@model EntityLayer.concrete.Category
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h1>Yeni Kategori Ekleme</h1>
+<br/>
+<!--html helper da beginform 3 parametre alır.1.üzerinde çalıştığın action ismi.2.üzerinde çalıştığın control ismi.3.form ne zaman çalışsın-->
+@using (Html.BeginForm("AddCategory","Category",FormMethod.Post))
+            {
+        <div class="form-group">
+            @Html.Label("Kategori adı")
+            @Html.TextBoxFor(x => x.CategoryName)
+            @Html.ValidationMessageFor(x => x.CategoryName)
+            <br /> <br />
+            @Html.Label("Açıklamayı yazınız")
+            @Html.TextBoxFor(x => x.CategoryDescription)
+            @Html.ValidationMessageFor(x => x.CategoryDescription)
+            <br /><br />
+            <button>Kaydet</button>
+        </div>
+            }
+
+<!--<form class="form-group" method="post">-->
+    <!--method form tagı içinde yer alan ifadeler ne zaman çalışsın görmek için-->
+    <!--input tipi textbox olacak, içinde kategoriadı diye metin yazacak,girilen texti veritanındaki CategoryName hücresine atacak, görüntü olarak da ekranı yanlamasına kaplayacak-->
+    <!--<input type="text" placeholder="Kategori Adı" name="CategoryName" class="form-control" />
+    <br />
+    <input type="text" placeholder="Kategori Açıklama" name="CategoryDescription" class="form-control" />
+     <br/>
+    <button class="btn btn-primary">Ekle</button>
+</form>-->

@@ -11,6 +11,9 @@ namespace DataAccessLayer.Abstract
     {
         List<T> List();
         void Insert(T p);
+
+        T get(Expression<Func<T, bool>> filter);//sadece bir değeri bulmak için filtre
+
         void Delete(T p);
         void Update(T p);
 

@@ -1,0 +1,32 @@
+﻿
+@using EntityLayer.concrete <!--entitylayer içindeki concrete ile işimiz var-->
+<!-- categoriden gelen değerleri model değişkeninde tut-->
+@model List<Category>
+
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>AD</th>
+        <th>AÇIKLAMA</th>
+        <th>DURUM</th>
+    </tr>
+    <!--model değişkeninin içinde dolan verileri iteme at-->
+    @foreach (var item in Model)
+    {
+        <tr>
+            <!--itemdaki değerleri bas-->
+            <td>@item.CategoryId</td>
+            <td>@item.CategoryName</td>
+            <td>@item.CategoryDescription</td>
+            <td>@item.CategoryStatus</td>
+        </tr>
+    }
+</table>
+
+<br/>
+<a href="/Category/AddCategory" class="btn btn-info">Yeni Kategori Ekleme</a><!--burada butona basınca AddCategory sayfasına yönlendirme yapacak-->
